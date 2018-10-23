@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlatironRailsProject</title>
+    <title>Champion: A Playbook Manager for Football Coaches</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,41 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id='main' class='container'>
+      <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+        <a class="navbar-brand" href="#">Champion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Playbooks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Games</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Opponents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+          </ul>
+          <% if true %>
+            <span class='navbar text'>
+              <span class='glyphicon glyphicon-user'></span>
+            </span>
+          <% else %>
+            <span class='navbar text'>
+              A Playbook Manager for Football Coaches
+          </span>
+          <% end %>
+        </div>
+      </nav> <%= yield %>
+  </div>
   </body>
 </html>

@@ -38,7 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Hooper Added Gems
 gem 'pry'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
 gem 'bcrypt'
 
 group :development, :test do
@@ -53,6 +54,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'shotgun'
 end
 
 group :test do
