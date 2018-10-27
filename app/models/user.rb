@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_secure_password
+
   
   has_one :profile
   has_many :playbooks
@@ -12,6 +15,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
+  accepts_nested_attributes_for :profile
   
 
   

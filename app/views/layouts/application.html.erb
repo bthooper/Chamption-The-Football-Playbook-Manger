@@ -19,10 +19,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <%= link_to "Home", root_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Playbooks</a>
+            <% if logged_in? %>
+              <%= link_to "Playbooks", user_playbooks_path(current_user), class:'nav-link' %>
+              <%# <a class="nav-link" href="#">Playbooks</a> %>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Games</a>
@@ -31,18 +32,20 @@
               <a class="nav-link" href="#">Opponents</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <%= link_to "Logout", logout_path, method: "delete", class: 'nav-link' %>
             </li>
-          </ul>
-          <% if true %>
-            <span class='navbar text'>
-              <span class='glyphicon glyphicon-user'></span>
-            </span>
           <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", '/login', class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+               <%= link_to "Create Account", new_user_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+          </ul>
             <span class='navbar text'>
               A Playbook Manager for Football Coaches
           </span>
-          <% end %>
         </div>
       </nav> <%= yield %>
   </div>

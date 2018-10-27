@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   #
   
   root to: "welcome#index"
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
-  resources :user, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :show]  do
+    resources :playbooks
+  end
+
+  resources :playbooks, only: [:new, :create, :show] 
+
 
 end

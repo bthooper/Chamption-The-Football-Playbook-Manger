@@ -1,0 +1,22 @@
+<h1><%= current_user.name %>'s Playbooks</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th scope='col'>Name</th>
+      <th scope='col'>Desciption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @playbooks.each do |playbook| %>
+      <tr>
+        <td><%= link_to playbook.name, playbook %></td>
+        <td><%= playbook.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+      
+
+
+<%= link_to "Create new playbook", new_user_playbook_path %>
