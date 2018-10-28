@@ -14,8 +14,11 @@ class PlaybooksController < ApplicationController
 
   def create
     @playbook = current_user.playbooks.build(playbook_params(:name, :description, :situation))
-    @playbook.save
-    redirect_to user_playbook_path current_user, @playbook
+    if @playbook.save
+      redirect_to user_playbook_path current_user, @playbook
+    else
+      render 'new'
+    end
   end
 
   def destroy
