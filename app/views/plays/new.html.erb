@@ -26,7 +26,7 @@
 
   <div class="form-group">
     <%= f.label 'Playbook' %>
-    <%= f.collection_select :playbook_id, @playbooks, :id, :name, class: 'form-control' %>
+    <%= f.collection_check_boxes :playbook_id, current_user.playbooks, :id, :name, class: 'form-control', include_hidden: false %>
   </div>
   <%= f.submit 'Create Play', class: 'btn btn-primary' %>
 <% end %>

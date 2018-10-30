@@ -1,6 +1,7 @@
 <h1>Welcome, Coach.</h1>
 
-<p><%= @user.name %></p>
-<p><%= @user.email %></p>
-<p><%= @user.profile.role %></p>
-<p><%= @user.profile.nickname %></p>
+<p>You Name: <%= @user.name %></p>
+<p>Your email: <%= @user.email %></p>
+<p>Your role: <%= @user.profile.role %></p>
+<p>Your nickname: <%= @user.profile.nickname %></p>
+<p><%= link_to "Edit Profile", edit_user_path(@user) %></p>

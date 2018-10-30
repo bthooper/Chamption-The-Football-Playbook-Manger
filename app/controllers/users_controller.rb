@@ -29,8 +29,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user.update(user_params())
-    redirect_to root_path
+  end
+
+  def update 
+    @user = User.find_by(id: params[:id])
+    binding.pry
+    @user.update(user_params(:name, :email, :nickname, profile_attributes: [:role, :nickname]))
+    redirect_to user_path @user 
   end
 
   private

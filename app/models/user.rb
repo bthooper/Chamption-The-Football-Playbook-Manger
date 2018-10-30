@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_secure_password
 
   
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :playbooks
   has_many :plays, through: :playbooks 
   has_many :games
