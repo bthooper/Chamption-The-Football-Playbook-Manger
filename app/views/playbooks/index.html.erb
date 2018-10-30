@@ -10,7 +10,7 @@
   <tbody>
     <% @playbooks.each do |playbook| %>
       <tr>
-        <td><%= link_to playbook.name, playbook %></td>
+        <td><%= link_to playbook.name, user_playbook_path(current_user, playbook) %></td>
         <td><%= playbook.description %></td>
       </tr>
     <% end %>

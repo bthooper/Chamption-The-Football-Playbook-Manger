@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :show]  do
     resources :playbooks
+    resources :plays
   end
 
-  resources :playbooks, only: [:new, :create, :show] 
+  resources :playbooks, only: [:new, :create, :show]  do
+    resources :plays
+  end
 
 
 end

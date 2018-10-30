@@ -22,26 +22,32 @@
               <%= link_to "Home", root_path, class: 'nav-link' %>
             </li>
             <% if logged_in? %>
-              <%= link_to "Playbooks", user_playbooks_path(current_user), class:'nav-link' %>
-              <%# <a class="nav-link" href="#">Playbooks</a> %>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Games</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Opponents</a>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Logout", logout_path, method: "delete", class: 'nav-link' %>
-            </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", '/login', class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-               <%= link_to "Create Account", new_user_path, class: 'nav-link' %>
-            </li>
-          <% end %>
+              <li class='nav-item'>
+                <%= link_to "Profile", user_path(current_user), class: 'nav-link' %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to "Playbooks", user_playbooks_path(current_user), class:'nav-link' %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to "Plays", user_plays_path(current_user), class:'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Games</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Opponents</a>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Logout", logout_path, method: "delete", class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login", '/login', class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Create Account", new_user_path, class: 'nav-link' %>
+              </li>
+            <% end %>
           </ul>
             <span class='navbar text'>
               A Playbook Manager for Football Coaches

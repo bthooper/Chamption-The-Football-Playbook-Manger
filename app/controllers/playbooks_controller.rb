@@ -1,5 +1,7 @@
 class PlaybooksController < ApplicationController
 
+  before_action :require_login
+
   def index
     @playbooks = current_user.playbooks.all
   end
@@ -31,6 +33,10 @@ class PlaybooksController < ApplicationController
 
   def playbook_params(*args)
     params.require(:playbook).permit(*args)
+  end
+  
+  def require_login
+    return head(:forbidden) unless logged_in?
   end
 
 end
