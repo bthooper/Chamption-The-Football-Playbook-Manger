@@ -1,7 +1,7 @@
 class Playbook < ApplicationRecord
 
   belongs_to :user
-  has_many :plays
+  has_and_belongs_to_many :plays
 
 
   validates :name, presence: true

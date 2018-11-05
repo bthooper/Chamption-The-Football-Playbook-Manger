@@ -1,0 +1,24 @@
+
+<h1><%= current_user.name %>'s Opponents</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th scope='col'>Name</th>
+      <th scope='col'>Mascot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @opponents.each do |opponent| %>
+      <tr>
+        <td><%= link_to opponent.name, user_opponent_path(current_user, opponent) %></td>
+        <td><%= opponent.mascot %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+      
+
+
+<%= link_to "Create new opponent", new_user_opponent_path %>

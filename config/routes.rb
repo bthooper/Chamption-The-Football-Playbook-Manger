@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :show]  do
     resources :playbooks
     resources :plays
+    resources :games
+    resources :opponents
   end
 
   resources :playbooks, only: [:new, :create, :show]  do

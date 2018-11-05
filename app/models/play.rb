@@ -1,7 +1,9 @@
 class Play < ApplicationRecord
 
-  belongs_to :playbook
+  has_and_belongs_to_many :playbooks
 
   validates :name, presence: true
+
+  accepts_nested_attributes_for :playbooks
 
 end

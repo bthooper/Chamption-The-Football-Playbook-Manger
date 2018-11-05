@@ -35,7 +35,7 @@
                 <a class="nav-link" href="#">Games</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Opponents</a>
+                <%= link_to "Opponents", user_opponents_path(current_user), class:'nav-link' %>
               </li>
               <li class="nav-item">
                 <%= link_to "Logout", logout_path, method: "delete", class: 'nav-link' %>
