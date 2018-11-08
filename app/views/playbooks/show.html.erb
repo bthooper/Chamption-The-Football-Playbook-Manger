@@ -6,4 +6,10 @@
 
 <h2>Plays</h2>
 
+<ul>
+  <% @playbook.plays.each do |play| %>
+    <li><%= link_to play.name, user_play_path(current_user, play) %></li>
+  <% end %>
+</ul>
+
 <%= link_to "Add play", new_playbook_play_path(@playbook) %>

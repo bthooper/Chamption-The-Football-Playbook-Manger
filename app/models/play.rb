@@ -4,4 +4,5 @@ class Play < ApplicationRecord
 
   validates :name, presence: true
 
+
 end

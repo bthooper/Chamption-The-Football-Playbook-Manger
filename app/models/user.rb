@@ -5,7 +5,7 @@ class User < ApplicationRecord
   
   has_one :profile, dependent: :destroy
   has_many :playbooks
-  has_many :plays, through: :playbooks 
+  has_many :plays, -> { distinct }, through: :playbooks 
   has_many :games
   has_many :opponents, through: :games
 

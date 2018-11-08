@@ -11,8 +11,15 @@ class PlaysController < ApplicationController
 
   def create
     @play = Play.new(play_params(:name, :description, :playbook_ids))
-    params[:play][:playbook_ids].each do |playbook_id|
-      @play.playbooks << Playbook.find_by(id: playbook_id)
+
+    if params[:play][:playbook_ids]
+      params[:play][:playbook_ids].each do |playbook_id|
+        @play.playbooks << Playbook.find_by(id: playbook_id)
+      end
+    else
+      @play.errors.add(:playbooks, 'must belong to at least one playbook')
+      render 'new'
+      return
     end
     if @play.save
       redirect_to user_play_path current_user, @play
@@ -22,7 +29,7 @@ class PlaysController < ApplicationController
   end
 
   def show
-    @play = Play.find_by(params[:id])
+    @play = Play.find_by(id: params[:id])
   end
 
 
