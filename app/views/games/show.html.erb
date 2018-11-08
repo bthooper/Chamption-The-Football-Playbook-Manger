@@ -1,0 +1,10 @@
+<h1>Game</h1>
+
+<p>Opponent: <%= @game.opponent.name %> <%= @game.opponent.mascot %></p>
+<p>Location: <%= @game.location %></p>
+<p>Date: <%= @game.date %></p>
+
+<p><%= link_to "Edit this Game", edit_user_game_path(current_user, @game) %></p>
+
+
+

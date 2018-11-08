@@ -1,6 +1,7 @@
 class PlaysController < ApplicationController
 
   def index
+    @plays = current_user.plays.all
   end
 
   def new
@@ -9,9 +10,10 @@ class PlaysController < ApplicationController
   end
 
   def create
-    @play = Play.new(play_params(:name, :description, playbook_attributes: [:playbook_ids]))
-    @play.playbooks << params[:play][:playbook_ids]
-    binding.pry
+    @play = Play.new(play_params(:name, :description, :playbook_ids))
+    params[:play][:playbook_ids].each do |playbook_id|
+      @play.playbooks << Playbook.find_by(id: playbook_id)
+    end
     if @play.save
       redirect_to user_play_path current_user, @play
     else

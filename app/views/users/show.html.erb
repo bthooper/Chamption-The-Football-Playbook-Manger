@@ -5,3 +5,8 @@
 <p>Your role: <%= @user.profile.role %></p>
 <p>Your nickname: <%= @user.profile.nickname %></p>
 <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+
+<h4>Upcoming Games</h3>
+<% @user.games.upcoming.by_date.each do |game| %>
+  <p><%= game.date %> | <%= game.opponent.name %> <%= game.opponent.mascot %> | <%= game.location %></p>
+<% end %>

@@ -4,6 +4,4 @@ class Play < ApplicationRecord
 
   validates :name, presence: true
 
-  accepts_nested_attributes_for :playbooks
-
 end

@@ -20,5 +20,9 @@ Rails.application.routes.draw do
     resources :plays
   end
 
+  scope '/admin' do
+    resources :users, only: [:index]
+  end
+
 
 end

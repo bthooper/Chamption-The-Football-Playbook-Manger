@@ -1,3 +1,8 @@
 <h1>Your Plays</h1>
-
+<ul>
+<% @plays.each do |play| %>
+  <li><%= link_to play.name, user_play_path(current_user, play) %></li>
+<% end %>
+</ul>
+<p></p>
 <p><%= link_to "Create a play", new_play_path %></p>

@@ -1,1 +1,9 @@
 <h1>Play: <%= @play.name %></h1>
+
+<p>Description: <%= @play.description %></p>
+<p><%= @play.name %> is in the following playbooks:</p>
+<ul>
+<% @play.playbooks.each do |pb| %>
+  <li><%= pb.name %></li>
+<% end %>
+</ul>
