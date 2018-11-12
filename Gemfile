@@ -41,6 +41,8 @@ gem 'pry'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'bcrypt'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
