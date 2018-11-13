@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :playbooks
     resources :plays
     resources :games
-    resources :opponents
+    resources :opponents, only: [:new, :create, :edit, :update, :show]
   end
 
   resources :playbooks, only: [:new, :create, :show]  do

@@ -5,6 +5,7 @@
 <p>Date: <%= @game.date %></p>
 
 <p><%= link_to "Edit this Game", edit_user_game_path(current_user, @game) %></p>
+<p><%= link_to "Delete this Game", [current_user, @game], method: :delete, data: { confirm: "Are you sure you want to delete this game?" } %></p>
 
 
 

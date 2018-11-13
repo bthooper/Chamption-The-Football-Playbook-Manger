@@ -37,9 +37,6 @@ class OpponentsController < ApplicationController
     @opponent = Opponent.find_by(id: params[:id])
   end
 
-  def delete
-
-  end
 
   private
 
