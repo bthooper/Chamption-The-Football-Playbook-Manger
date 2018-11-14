@@ -12,4 +12,5 @@
   <% end %>
 </ul>
 
-<%= link_to "Add play", new_playbook_play_path(@playbook) %>
+<p><%= link_to "Add play", new_playbook_play_path(@playbook) %></p>
+<p><%= link_to "Delete Playbook", [current_user, @playbook], method: :delete, data: { confirm: "Are you sure you want to delete this playbook?" } %></p>

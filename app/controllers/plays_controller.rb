@@ -10,16 +10,11 @@ class PlaysController < ApplicationController
   end
 
   def create
-    @play = Play.new(play_params(:name, :description, :playbook_ids))
-
+    @play = Play.new(play_params(:name, :description))
     if params[:play][:playbook_ids]
       params[:play][:playbook_ids].each do |playbook_id|
         @play.playbooks << Playbook.find_by(id: playbook_id)
       end
-    else
-      @play.errors.add(:playbooks, 'must belong to at least one playbook')
-      render 'new'
-      return
     end
     if @play.save
       redirect_to user_play_path current_user, @play
@@ -31,6 +26,32 @@ class PlaysController < ApplicationController
   def show
     @play = Play.find_by(id: params[:id])
   end
+
+  def edit
+    @play = Play.find_by(id: params[:id])
+  end
+  
+  def update
+    @play = Play.find_by(id: params[:id])
+    @play.update(play_params(:name, :description))
+    @play.playbooks = []
+    if params[:play][:playbook_ids]
+      params[:play][:playbook_ids].each do |playbook_id|
+        @play.playbooks << Playbook.find_by(id: playbook_id)
+      end
+    end
+    if @play.save
+      redirect_to user_play_path current_user, @play
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+
+  end
+  
+
 
 
   private

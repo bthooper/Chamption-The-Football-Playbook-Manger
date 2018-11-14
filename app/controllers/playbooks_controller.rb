@@ -24,6 +24,9 @@ class PlaybooksController < ApplicationController
   end
 
   def destroy
+    playbook = Playbook.find_by(id: params[:id])
+    playbook.destroy
+    redirect_to user_playbooks_path current_user
   end
 
   def update

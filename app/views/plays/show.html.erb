@@ -7,3 +7,6 @@
   <li><%= pb.name %></li>
 <% end %>
 </ul>
+
+<p><%= link_to "Edit Play", edit_user_play_path(current_user, @play) %></p>
+<p><%= link_to "Delete Play", [current_user, @play], method: :delete, data: { confirm: "Are you sure you want to delete this play?" } %></p>

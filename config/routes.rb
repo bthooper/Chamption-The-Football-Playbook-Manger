@@ -9,13 +9,11 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create_fb'
 
 
-  resources :plays
-
   resources :users, only: [:new, :create, :edit, :update, :show]  do
     resources :playbooks
     resources :plays
     resources :games
-    resources :opponents, only: [:new, :create, :edit, :update, :show]
+    resources :opponents, only: [:index, :new, :create, :edit, :update, :show]
   end
 
   resources :playbooks, only: [:new, :create, :show]  do

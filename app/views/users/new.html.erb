@@ -1,9 +1,12 @@
 <div class='row justify-content-center'>
   <div class='col-5'>
     <h1 class='display-22'>Sign Up</h1>
-    <%= render 'shared/error_messages' %>
-    <%= render 'form' %>
+
+    <%= render partial: 'shared/error_messages', locals: { item: @user } %>
+    <%= render partial: 'form', locals: { submit_msg: 'Create Coach' } %>
+
     <p>Already have an account? <%= link_to "Log in here.", login_path %></p>
     <p><%= link_to('Or log in with Facebook!', '/auth/facebook') %></p>
+
   </div>
 </div>
